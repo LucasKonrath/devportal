@@ -13,3 +13,4 @@ Welcome to the developer portal. Use the navigation on the left to explore the c
 ## Resources
 
 - [GitHub Repository](https://github.com/LucasKonrath/devportal)
+
