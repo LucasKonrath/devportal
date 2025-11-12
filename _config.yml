@@ -9,6 +9,13 @@ markdown: kramdown
 theme: minima
 permalink: /posts/:title/
 
+# Syntax highlighting
+kramdown:
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    block:
+      line_numbers: false
+
 # Exclude files from the build
 exclude:
   - Gemfile
