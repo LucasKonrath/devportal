@@ -4,7 +4,22 @@ Welcome to my technical blog! This is a space where I share my knowledge, experi
 
 ## Latest Posts
 
-Check out the [Blog Posts](./posts/welcome.md) section in the sidebar to read my latest articles.
+### [Problem Solving Techniques: Two Pointers](./posts/two-pointers.md)
+*November 11, 2025* • 6 min read
+
+Learn the two pointer pattern for solving algorithms efficiently. This technique can reduce time complexity from O(n²) to O(n) in many scenarios. Includes practical examples with Go implementations.
+
+### [Getting Started with GitHub Pages and mdBook](./posts/getting-started-mdbook.md)
+*November 10, 2025* • 5 min read
+
+mdBook is an amazing tool for creating documentation and blogs from Markdown files. It's fast, produces beautiful output, and is perfect for technical content.
+
+### [Welcome to My Blog](./posts/welcome.md)
+*November 12, 2025* • 3 min read
+
+My first blog post! Learn about what to expect from this blog and why I decided to start writing.
+
+---
 
 ## What You'll Find Here
 
