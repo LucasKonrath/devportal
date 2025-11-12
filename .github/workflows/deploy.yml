@@ -33,6 +33,8 @@ jobs:
 
       - name: Build book
         run: mdbook build
+        env:
+          MDBOOK_OUTPUT__HTML__SITE_URL: /devportal/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
