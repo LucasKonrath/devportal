@@ -1,0 +1,19 @@
+# Ignore Jekyll build files
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+
+# Ignore bundler config
+/.bundle
+/vendor/
+
+# Ignore macOS files
+.DS_Store
+
+# Ignore IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~

@@ -1,0 +1,41 @@
+# Site settings
+title: My Blog
+description: A simple and elegant blog powered by Jekyll
+author: Your Name
+email: your.email@example.com
+
+# Build settings
+markdown: kramdown
+theme: minima
+permalink: /posts/:title/
+
+# Exclude files from the build
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Collections
+collections:
+  posts:
+    output: true
+    permalink: /posts/:title/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "Your Name"
+
+# Site URL (update this when deploying to GitHub Pages)
+# url: "https://yourusername.github.io"
+# baseurl: "/your-repo-name"  # Leave empty if using username.github.io

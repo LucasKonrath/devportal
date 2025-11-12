@@ -1,0 +1,31 @@
+---
+layout: default
+---
+
+<article class="post-content">
+    <h1>{{ page.title }}</h1>
+    <p class="post-meta">
+        {{ page.date | date: "%B %d, %Y" }}
+        {% if page.reading_time %} • {{ page.reading_time }} min read{% endif %}
+    </p>
+    
+    <div class="post-body">
+        {{ content }}
+    </div>
+
+    <div class="post-navigation">
+        <a href="{{ '/' | relative_url }}" class="nav-button">← Back to Home</a>
+        
+        {% if page.previous.url or page.next.url %}
+        <div class="post-nav-links">
+            {% if page.previous.url %}
+            <a href="{{ page.previous.url | relative_url }}" class="nav-button">← {{ page.previous.title | truncate: 30 }}</a>
+            {% endif %}
+            
+            {% if page.next.url %}
+            <a href="{{ page.next.url | relative_url }}" class="nav-button">{{ page.next.title | truncate: 30 }} →</a>
+            {% endif %}
+        </div>
+        {% endif %}
+    </div>
+</article>
