@@ -37,5 +37,5 @@ defaults:
       author: "Your Name"
 
 # Site URL (update this when deploying to GitHub Pages)
-# url: "https://yourusername.github.io"
-# baseurl: "/your-repo-name"  # Leave empty if using username.github.io
+url: "https://LucasKonrath.github.io"
+baseurl: "/devportal"  # Leave empty if using username.github.io
