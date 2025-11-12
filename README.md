@@ -1,17 +1,30 @@
 # My Blog
 
-A simple, elegant blog website built with **Jekyll** and **Markdown**, designed to be hosted on GitHub Pages.
+A technical blog built with **mdBook** (Rust), featuring posts about software development, algorithms, and problem-solving.
 
 ## 🌟 Features
 
-- **Write in Markdown** - No HTML required!
-- **Jekyll powered** - Static site generation with built-in support
+- **Write in Markdown** - Simple and powerful
+- **mdBook powered** - Fast Rust-based static site generator
 - **GitHub Pages ready** - Automatic building and deployment
-- Clean and modern design
-- Fully responsive (works on all devices)
-- Easy to customize
-- Fast loading times
-- SEO optimized
+- **Syntax highlighting** - Beautiful code highlighting out of the box
+- **Full-text search** - Built-in search functionality
+- **Responsive design** - Works perfectly on all devices
+- **Fast loading** - Optimized static site generation
+
+## 🚀 Quick Start
+
+### Prerequisites
+
+Install Rust and mdBook:
+
+```bash
+# Install Rust (if not already installed)
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+# Install mdBook
+cargo install mdbook
+```
 
 ## 🚀 Deploying to GitHub Pages
 
@@ -19,9 +32,7 @@ A simple, elegant blog website built with **Jekyll** and **Markdown**, designed 
 
 1. Go to [GitHub](https://github.com) and sign in
 2. Click the "+" icon in the top right and select "New repository"
-3. Name your repository:
-   - For a user/org site: `username.github.io` (replace `username` with your GitHub username)
-   - For a project site: any name like `my-blog`
+3. Name your repository: `devportal` (or any name you prefer)
 4. Set it to **Public**
 5. Click "Create repository"
 
@@ -37,10 +48,10 @@ git init
 git add .
 
 # Commit your changes
-git commit -m "Initial commit: Jekyll blog setup"
+git commit -m "Initial commit: mdBook blog setup"
 
 # Add your GitHub repository as remote
-git remote add origin https://github.com/YOUR-USERNAME/YOUR-REPO-NAME.git
+git remote add origin https://github.com/LucasKonrath/devportal.git
 
 # Push to GitHub
 git branch -M main
@@ -52,171 +63,139 @@ git push -u origin main
 1. Go to your repository on GitHub
 2. Click on **Settings**
 3. Scroll down to **Pages** in the left sidebar
-4. Under "Source", select **main** branch
-5. Click **Save**
+4. Under "Build and deployment":
+   - Source: Select **GitHub Actions**
+5. The workflow will automatically run and deploy your site
 6. Wait a few minutes, then your site will be live at:
-   - User/org site: `https://YOUR-USERNAME.github.io/`
-   - Project site: `https://YOUR-USERNAME.github.io/YOUR-REPO-NAME/`
+   - `https://LucasKonrath.github.io/devportal/`
 
-### Step 4: Update Configuration (for project sites)
-
-If using a project site (not `username.github.io`), edit `_config.yml`:
-
-```yaml
-url: "https://YOUR-USERNAME.github.io"
-baseurl: "/YOUR-REPO-NAME"
-```
-
-Commit and push the changes.
+That's it! The GitHub Action will automatically build and deploy your mdBook site whenever you push to main.
 
 ## 📝 Adding New Blog Posts
 
-Creating new blog posts is easy with Jekyll! Just follow these steps:
+Creating new blog posts with mdBook is simple!
 
 ### Quick Start
 
-1. Create a new file in the `_posts` directory
-2. Name it with the format: `YYYY-MM-DD-title-of-post.md`
-3. Add front matter and write your content in Markdown
+1. Create a new Markdown file in the `src/posts` directory
+2. Write your content in Markdown
+3. Add an entry to `src/SUMMARY.md`
 
-### Example Post
+### Example: Creating a New Post
 
-Create a file: `_posts/2025-11-15-my-new-post.md`
+**Step 1:** Create the file `src/posts/my-new-post.md`
 
 ```markdown
----
-layout: post
-title: "My New Post Title"
-date: 2025-11-15
-reading_time: 4
-excerpt: "A brief description of what this post is about. This will appear on the home page."
----
+# My New Post Title
 
-# This is a heading
+**November 15, 2025** • 4 min read
 
 Write your content here in **Markdown**. It's simple and powerful!
 
-## Another heading
+## A Section
 
-- Bullet point 1
-- Bullet point 2
+Some content with `code` and more.
 
-You can add [links](https://example.com), images, code blocks, and more!
-
-\`\`\`python
-def hello():
-    print("Hello, World!")
+\`\`\`rust
+fn main() {
+    println!("Hello, World!");
+}
 \`\`\`
 ```
 
-### Front Matter Fields
+**Step 2:** Add it to `src/SUMMARY.md`
 
-- `layout`: Always use `post`
-- `title`: Your post title (required)
-- `date`: Publication date in YYYY-MM-DD format (required)
-- `reading_time`: Estimated reading time in minutes (optional)
-- `excerpt`: Short description for the home page (optional)
+```markdown
+# Blog Posts
 
-### Markdown Tips
+- [Welcome to My Blog](./posts/welcome.md)
+- [My New Post](./posts/my-new-post.md)  ← Add this line
+- [Two Pointers Pattern](./posts/two-pointers.md)
+```
 
-- `# Heading 1` → Main heading
-- `## Heading 2` → Subheading
-- `**bold text**` → **bold text**
-- `*italic text*` → *italic text*
-- `[link text](url)` → Hyperlink
-- `![alt text](image-url)` → Image
-- `` `code` `` → Inline code
-- Use triple backticks for code blocks
-
-### Publishing
-
-Just commit and push your new post:
+**Step 3:** Build and preview
 
 ```bash
-git add _posts/2025-11-15-my-new-post.md
+mdbook build
+mdbook serve  # Preview at http://localhost:3000
+```
+
+**Step 4:** Publish
+
+```bash
+git add src/posts/my-new-post.md src/SUMMARY.md
 git commit -m "Add new post"
 git push
 ```
 
-GitHub Pages will automatically rebuild your site!
+GitHub Actions will automatically rebuild and deploy your site!
 
 ## 🎨 Customization
 
 ### Change Site Settings
 
-Edit `_config.yml` to customize your blog:
+Edit `book.toml` to customize your blog:
 
-```yaml
-title: My Awesome Blog          # Your blog title
-description: My blog description # Site description
-author: Your Name               # Your name
-email: your.email@example.com   # Your email
+```toml
+[book]
+title = "My Awesome Blog"
+authors = ["Your Name"]
+description = "Your blog description"
 ```
 
 ### Change Colors and Styles
 
-Edit `assets/css/styles.css` and modify the CSS variables:
+Edit `theme/custom.css` to modify styles:
 
 ```css
 :root {
-    --primary-color: #2c3e50;    /* Dark blue-gray */
-    --secondary-color: #3498db;   /* Blue */
-    --accent-color: #e74c3c;      /* Red */
-    /* ... other colors ... */
+    --blog-primary: #2c3e50;
+    --blog-secondary: #3498db;
+    --blog-accent: #e74c3c;
 }
 ```
 
-### Modify Layouts
+### Modify Structure
 
-- Edit `_layouts/default.html` for the overall page structure
-- Edit `_layouts/post.html` for individual post layout
-- Customize the header and footer sections
+- Edit `src/SUMMARY.md` for the table of contents
+- Add new sections and organize posts as you like
+- Create subdirectories in `src/` for better organization
 
 ## 📁 Project Structure
 
 ```
 devportal/
-├── _config.yml              # Jekyll configuration
-├── _layouts/                # Page layouts
-│   ├── default.html        # Main layout wrapper
-│   └── post.html           # Blog post layout
-├── _posts/                  # Your blog posts (Markdown)
-│   ├── 2025-11-12-welcome-to-my-blog.md
-│   └── 2025-11-10-getting-started-github-pages-jekyll.md
-├── assets/
-│   └── css/
-│       └── styles.css      # All CSS styles
-├── index.html              # Home page
-├── Gemfile                 # Ruby dependencies
-├── .gitignore             # Git ignore rules
-└── README.md              # This file
+├── book.toml              # mdBook configuration
+├── src/                   # Source content
+│   ├── SUMMARY.md        # Table of contents
+│   ├── README.md         # Home page
+│   ├── about.md          # About page
+│   ├── posts/            # Blog posts
+│   │   ├── welcome.md
+│   │   ├── two-pointers.md
+│   │   └── getting-started-mdbook.md
+│   └── images/           # Images
+├── theme/                # Custom themes
+│   └── custom.css       # Custom CSS
+├── .github/
+│   └── workflows/
+│       └── deploy.yml   # GitHub Actions workflow
+└── README.md            # This file
 ```
 
 ## 🔧 Local Development
 
-To test your blog locally before deploying:
-
-### Prerequisites
-
-Install Ruby and Bundler:
-- **macOS**: Ruby comes pre-installed. Install bundler with `gem install bundler`
-- **Windows**: Install from [RubyInstaller](https://rubyinstaller.org/)
-- **Linux**: Use your package manager (e.g., `sudo apt-get install ruby-full`)
-
-### Run Locally
+To test your blog locally:
 
 ```bash
-# Install dependencies (first time only)
-bundle install
+# Build the book
+mdbook build
 
-# Start the Jekyll server
-bundle exec jekyll serve
+# Serve locally with auto-reload
+mdbook serve
 
-# Or with live reload
-bundle exec jekyll serve --livereload
+# Open http://localhost:3000 in your browser
 ```
-
-Then open `http://localhost:4000` in your browser.
 
 The site will automatically rebuild when you make changes!
 

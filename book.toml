@@ -1,0 +1,45 @@
+[book]
+title = "My Blog"
+authors = ["Lucas Konrath"]
+language = "en"
+src = "src"
+description = "A technical blog about software development and problem solving"
+
+[build]
+build-dir = "book"
+
+[output.html]
+default-theme = "ayu"
+preferred-dark-theme = "ayu"
+git-repository-url = "https://github.com/LucasKonrath/devportal"
+site-url = "/devportal/"
+cname = ""
+additional-css = ["theme/custom.css"]
+
+[output.html.print]
+enable = true
+
+[output.html.fold]
+enable = true
+level = 0
+
+[output.html.playground]
+editable = true
+copyable = true
+line-numbers = true
+
+[output.html.search]
+enable = true
+limit-results = 30
+teaser-word-count = 30
+use-boolean-and = true
+boost-title = 2
+boost-hierarchy = 1
+boost-paragraph = 1
+expand = true
+heading-split-level = 3
+
+[preprocessor.links]
+
+[output.html.code.hidelines]
+python = "~"

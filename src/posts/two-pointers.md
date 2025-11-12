@@ -1,12 +1,6 @@
----
-layout: post
-title: "Problem Solving Techniques: Two Pointers"
-date: 2025-11-11
-reading_time: 6
-excerpt: "Learn the two pointer pattern for solving algorithms efficiently. This technique can reduce time complexity from O(n²) to O(n) in many scenarios."
----
+# Problem Solving Techniques: Two Pointers
 
-## Problem solving techniques: Two pointers
+**November 11, 2025** • 6 min read
 
 The two pointer pattern is used to solve an algorithm. It consists of two variables that represent an index or a position (hence a pointer).
 
@@ -16,9 +10,11 @@ compare(nums[left], nums[right]){
 }
 ```
 
-### But what about a nested for loop? It has two pointers, what is the difference?
+## But what about a nested for loop? 
 
-#### In the below code snippet, we are comparing every two elements in an array.
+It has two pointers, what is the difference?
+
+In the below code snippet, we are comparing every two elements in an array.
 
 ```java
 // Time complexity - O(n²)
@@ -29,7 +25,7 @@ for(int i = 0; i < n; i++){
 }
 ```
 
-### But often, there is predictable behavior in our algorithms that can be used to solve them more optimally.
+But often, there is predictable behavior in our algorithms that can be used to solve them more optimally.
 
 ## Example - Pair Sum - Sorted array
 
@@ -81,6 +77,6 @@ func twoPairSumTwoPointers(numbers []int, target int) []int {
 
 ### Let's do a quick table test, assuming our array is [-3, -1, 0, 2, 5]
 
-![Two Pointers Pair Sum Visualization]({{ '/assets/images/two-pointers-pair-sum.png' | relative_url }})
+![Two Pointers Pair Sum Visualization](../images/two-pointers-pair-sum.png)
 
 ### So this is how you solve Pair Sum - Sorted Array using the two pointers technique!
