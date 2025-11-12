@@ -33,8 +33,12 @@ jobs:
 
       - name: Build book
         run: mdbook build
-        env:
-          MDBOOK_OUTPUT__HTML__SITE_URL: /devportal/
+
+      - name: Fix paths for GitHub Pages subdirectory
+        run: |
+          cd book
+          # Add base tag to all HTML files for proper asset loading
+          find . -name "*.html" -type f -exec sed -i 's|<head>|<head><base href="/devportal/">|' {} \;
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
