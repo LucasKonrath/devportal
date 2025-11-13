@@ -1,6 +1,6 @@
 # Problem Solving Techniques: Two Pointers
 
-**November 11, 2025** • 6 min read
+**November 11, 2025** 
 
 The two pointer pattern is used to solve an algorithm. It consists of two variables that represent an index or a position (hence a pointer).
 
@@ -52,6 +52,20 @@ func twoPairSum(numbers []int, target int) []int {
 
 > Since the array is sorted, we know that left values will always be smaller than the right values. So, assuming we have two pointers, one left and one right. If the sum of both values associated to those pointers is bigger than the target, we can move the right pointer to the left, which will result in a smaller sum. Now if the sum of both values is smaller than the target, we can move the left pointer to the right, which will result in a bigger sum.
 
+### The two pointers
+
+#### Left - started at the leftmost point in the array (index 0)
+
+#### Right - started at the rightmost point in the array (index len(numbers) - 1)
+
+#### By manipulating these two pointers, we can have better results than by using brute force. Since the array is sorted in an ascending order, we know that each time we move the left pointer to the right, we'll get a bigger value. Also, each time we move the right pointer to the left, we'll get a smaller value.
+
+#### So, if the sum of `numbers[left]` + `numbers[right]` is _smaller_ than what we want, we must move the left pointer to the right. If the sum is _bigger_ than what we want, we must move the right pointer to the left.  If the sum is what we want, we return a array with `left` and `right`.	
+
+#### Compared to the naive approach, this lowers runtime complexity from O(nˆ2) to O(n). This is because each pointer traverses the array, at most, once.
+
+## Code Solution in GO
+
 ```go
 package main
 
@@ -79,4 +93,4 @@ func twoPairSumTwoPointers(numbers []int, target int) []int {
 
 ![Two Pointers Pair Sum Visualization](../images/two-pointers-pair-sum.png)
 
-### So this is how you solve Pair Sum - Sorted Array using the two pointers technique!
+### Hope you enjoyed this post, see you in the next one!
